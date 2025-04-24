@@ -4,4 +4,9 @@
 *.iml
 *.ipr
 *.yml
+
+/src/main/resources/application.yml
+/src/main/resources/application.properties.yml
+
+
 .uploads
