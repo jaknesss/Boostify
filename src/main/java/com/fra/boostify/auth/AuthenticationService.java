@@ -34,7 +34,7 @@ public class AuthenticationService {
                 orElseThrow(() -> new IllegalStateException("Role USER was not initialized"));
 
         var user = User.builder()
-                .firstName(request.getFirstName())
+                .firstname(request.getFirstname())
                 .lastname(request.getLastname())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))

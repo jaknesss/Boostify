@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("auth")
 @RequiredArgsConstructor
 @Tag(name = "Authentication")
-public class AthenticationController {
+public class AuthenticationController {
     private final AuthenticationService service;
 
     @PostMapping("/register")
