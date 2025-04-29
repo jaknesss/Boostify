@@ -20,6 +20,7 @@ public class Token {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private LocalDateTime validatedAt;
+    private LocalDateTime expiresAt;
 
     @ManyToOne
     @JoinColumn(name = "userId", nullable = false)
