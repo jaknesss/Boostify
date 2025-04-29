@@ -1,0 +1,17 @@
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/BoostifyApplication.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/auth/AthenticationController.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/auth/AuthenticationService.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/auth/RegistrationRequest.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/config/BeansConfig.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/email/EmailService.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/email/EmailTemplate.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/role/Role.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/role/RoleRepository.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/security/JwtFilter.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/security/JwtService.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/security/SecurityConfig.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/security/UserDetailServiceImpl.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/user/Token.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/user/TokenRepository.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/user/User.java
+/home/fra/Documents/cooking/SIW/Boostify/src/main/java/com/fra/boostify/user/UserRepository.java
