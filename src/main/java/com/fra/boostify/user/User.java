@@ -1,6 +1,8 @@
 package com.fra.boostify.user;
 
+import com.fra.boostify.histiry.VinylTransactionHistory;
 import com.fra.boostify.role.Role;
+import com.fra.boostify.vinyl.Vinyl;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -42,6 +44,12 @@ public class User implements UserDetails, Principal {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Role> roles;
+
+    @OneToMany(mappedBy = "owner")
+    private List<Vinyl> vinyls;
+
+    @OneToMany(mappedBy = "user")
+    private List<VinylTransactionHistory> histories;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
