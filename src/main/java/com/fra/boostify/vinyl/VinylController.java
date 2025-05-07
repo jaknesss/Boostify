@@ -1,6 +1,7 @@
 package com.fra.boostify.vinyl;
 
 import com.fra.boostify.common.PageResponse;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/vinyls")
@@ -106,4 +108,16 @@ public class VinylController {
     {
         return ResponseEntity.ok(service.approveReturnBorrowedVinyl(vinylId, connectedUser));
     }
+    
+    @PostMapping(value = "/cover/{vinyl-id}", consumes = "multipart/form-data")
+    public ResponseEntity<Integer> uploadVinylCover(
+            @PathVariable("vinyl-id") Integer vinylId,
+            @Parameter()
+            @RequestParam("file") MultipartFile file,
+            Authentication connectedUser)
+    {
+        service.uploadVinylCoverPicture(file, connectedUser, vinylId);
+        return ResponseEntity.accepted().build();
+    }
+
 }

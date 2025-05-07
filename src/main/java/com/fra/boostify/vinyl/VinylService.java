@@ -2,6 +2,7 @@ package com.fra.boostify.vinyl;
 
 import com.fra.boostify.common.PageResponse;
 import com.fra.boostify.exception.OperationNotPermittedException;
+import com.fra.boostify.file.FileStorageService;
 import com.fra.boostify.history.VinylTransactionHistory;
 import com.fra.boostify.history.VinylTransactionHistoryRepository;
 import com.fra.boostify.user.User;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Objects;
@@ -27,6 +29,7 @@ public class VinylService {
     private final VinylRepository vinylRepository;
     private final VinylTransactionHistoryRepository transactionHistoryRepository;
     private final VinylMapper vinylMapper;
+    private final FileStorageService fileStorageService;
 
     public Integer save(VinylRequest request, Authentication connectedUser) {
         User user = ((User) connectedUser.getPrincipal());
@@ -179,5 +182,14 @@ public class VinylService {
                 .orElseThrow(() -> new OperationNotPermittedException("The vinyl is not returned yet. You cannot approve its return"));
         vinylTransactionHistory.setReturnedApproved(true);
         return transactionHistoryRepository.save(vinylTransactionHistory).getId();
+    }
+
+    public void uploadVinylCoverPicture(MultipartFile file, Authentication connectedUser, Integer vinylId) {
+        Vinyl vinyl = vinylRepository.findById(vinylId)
+                .orElseThrow(() -> new EntityNotFoundException("No vinyl found with ID: " + vinylId));
+        User user = ((User) connectedUser.getPrincipal());
+        var vinylCover = fileStorageService.saveFile(file, user.getId());
+        vinyl.setVinylCoverImage(vinylCover);
+        vinylRepository.save(vinyl);
     }
 }
