@@ -9,15 +9,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-@RestControllerAdvice
+@RestController
 @RequestMapping("feedbacks")
 @RequiredArgsConstructor
 @Tag(name = "Feedback")
 public class FeedbackController {
 
     private final FeedbackService service;
-
-
     @PostMapping
     public ResponseEntity<Integer> saveFeedback(
             @Valid @RequestBody FeedbackRequest request,

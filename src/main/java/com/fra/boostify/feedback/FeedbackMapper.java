@@ -9,12 +9,12 @@ import java.util.Objects;
 public class FeedbackMapper {
     public Feedback toFeedback(FeedbackRequest request) {
         return Feedback.builder()
-                .vote(request.note())
+                .vote(request.vote())
                 .comment(request.comment())
                 .vinyl(Vinyl.builder()
                         .id(request.vinylId())
                         .archived(false)
-                        .shareable(true)
+                        .shareable(false)
                         .build()
                 )
                 .build();

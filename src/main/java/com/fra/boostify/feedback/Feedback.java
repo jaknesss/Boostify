@@ -18,6 +18,7 @@ import lombok.experimental.SuperBuilder;
 @Entity
 public class Feedback extends BaseEntity {
 
+    @Column
     private Double vote;
     private String comment;
 

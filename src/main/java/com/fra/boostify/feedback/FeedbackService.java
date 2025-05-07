@@ -6,6 +6,7 @@ import com.fra.boostify.user.User;
 import com.fra.boostify.vinyl.Vinyl;
 import com.fra.boostify.vinyl.VinylRepository;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -37,6 +38,7 @@ public class FeedbackService {
         return feedbackRepository.save(feedback).getId();
     }
 
+    @Transactional
     public PageResponse<FeedbackResponse> findAllFeedbacksByVinyl(Integer vinylId, int page, int size, Authentication connectedUser) {
         Pageable pageable = PageRequest.of(page, size);
         User user = ((User) connectedUser.getPrincipal());
