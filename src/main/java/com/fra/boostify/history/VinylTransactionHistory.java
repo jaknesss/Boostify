@@ -1,4 +1,4 @@
-package com.fra.boostify.histiry;
+package com.fra.boostify.history;
 
 import com.fra.boostify.common.BaseEntity;
 import com.fra.boostify.user.User;

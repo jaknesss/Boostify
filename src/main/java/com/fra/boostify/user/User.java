@@ -1,6 +1,6 @@
 package com.fra.boostify.user;
 
-import com.fra.boostify.histiry.VinylTransactionHistory;
+import com.fra.boostify.history.VinylTransactionHistory;
 import com.fra.boostify.role.Role;
 import com.fra.boostify.vinyl.Vinyl;
 import jakarta.persistence.*;

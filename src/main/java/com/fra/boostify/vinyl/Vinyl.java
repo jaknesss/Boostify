@@ -2,7 +2,7 @@ package com.fra.boostify.vinyl;
 
 import com.fra.boostify.common.BaseEntity;
 import com.fra.boostify.feedback.Feedback;
-import com.fra.boostify.histiry.VinylTransactionHistory;
+import com.fra.boostify.history.VinylTransactionHistory;
 import com.fra.boostify.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,10 +22,11 @@ import java.util.List;
 public class Vinyl extends BaseEntity {
 
     private String albumTitle;
-    private String artist;
+    private String artistName;
     private String description;
     private String genre;
-    private String vinylCover;
+    private String vinylCoverImage;
+    private String barcode;
     private boolean archived;
     private boolean shareable;
 
@@ -39,6 +40,15 @@ public class Vinyl extends BaseEntity {
     @OneToMany(mappedBy = "vinyl")
     private List<VinylTransactionHistory> histories;
 
-
+    @Transient
+    public double getRate() {
+        if(feedbacks == null || feedbacks.isEmpty()) return 0.0;
+        var rate = this.feedbacks
+                .stream()
+                .mapToDouble(Feedback::getVote)
+                .average()
+                .orElse(0.0);
+        return Math.round(rate * 10.0) / 10.0;
+    }
 
 }
