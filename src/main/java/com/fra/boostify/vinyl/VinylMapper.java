@@ -1,5 +1,6 @@
 package com.fra.boostify.vinyl;
 
+import com.fra.boostify.file.FileUtils;
 import com.fra.boostify.history.VinylTransactionHistory;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class VinylMapper {
                 .archived(vinyl.isArchived())
                 .shareable(vinyl.isShareable())
                 .owner(vinyl.getOwner().fullName())
-                //.vinylCoverImage()
+                .vinylCoverImage(FileUtils.readFileFromLocation(vinyl.getVinylCoverImage()))
                 .build();
     }
 

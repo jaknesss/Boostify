@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -47,7 +48,7 @@ public class FileStorageService {
             Files.write(targetPath, sourceFile.getBytes());
             log.info("File uploaded successfully to " + targetFilePath);
             return targetFilePath;
-        } catch (Exception e) {
+        } catch (IOException e) {
             log.error("Failed to upload the file", e);
         }
         return null;
