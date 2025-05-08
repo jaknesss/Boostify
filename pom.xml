@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.fra</groupId>
-	<artifactId>boostify</artifactId>
+	<artifactId>groovelend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>boostify</name>
+	<name>groovelend</name>
 	<description>Spring Boot project</description>
 	<url/>
 	<licenses>
