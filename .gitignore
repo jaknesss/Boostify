@@ -1,13 +1,79 @@
-### IntelliJ IDEA ###
+# ===========================
+# IntelliJ IDEA
+# ===========================
 .idea
 *.iws
 *.iml
 *.ipr
 *.yml
 
+# ===========================
+# Spring Boot / Java
+# ===========================
 /src/main/resources/application.properties
 /src/main/resources/application.yml
 /src/main/resources/application.properties.yml
 
+# ===========================
+# Angular / Node.js
+# ===========================
 
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node dependencies
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# Angular cache
+/.angular/cache
+
+# Sass cache
+.sass-cache/
+
+# Miscellaneous
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# ===========================
+# IDEs and Editors
+# ===========================
+
+# IntelliJ IDEA (already above, but also ignore folder inside Angular if any)
+.idea/
+
+# Eclipse and others
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Local history folder for VSCode
+.history/*
+
+# ===========================
+# System files
+# ===========================
+.DS_Store
+Thumbs.db
+
+# ===========================
+# Other
+# ===========================
 .uploads
